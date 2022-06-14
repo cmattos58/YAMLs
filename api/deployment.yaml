@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: api-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: api
@@ -17,9 +17,13 @@ spec:
         #image: fabricioveronez/pedelogo-catalogo:v1.0.0
         image: cmattos59/pedelogo-catalogo:v1
         resources:
+          resources:
+          requests:
+            memory: 32Mi
+            cpu: 150m  
           limits:
-            memory: "128Mi"
-            cpu: "500m"
+            memory: 64Mi
+            cpu: 500m 
         ports:
         - containerPort: 80
         imagePullPolicy: Always
