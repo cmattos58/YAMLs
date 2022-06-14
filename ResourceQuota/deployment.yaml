@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginx
 spec:
-  replicas: 20
+  replicas: 15
   selector:
     matchLabels:
       app: nginx
@@ -17,7 +17,7 @@ spec:
         image: nginx
         resources: 
           requests:
-            cpu: "100m"
+            cpu: "200m"
             memory: "128Mi"
           limits:
             cpu: "300m"
