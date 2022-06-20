@@ -24,8 +24,8 @@ spec:
             memory: 256Mi
             cpu: 1000m
         envFrom:
-          - secretKeyRef:
-            name: mongodb-secret
+          - secretRef:
+              name: mongodb-secret
         volumeMounts:
           - mountPath: /data/db
             name: mongo-db
