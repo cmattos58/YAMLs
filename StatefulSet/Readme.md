@@ -1,5 +1,5 @@
 Fazer uma modificação no manifesto do kube-apiserver.yaml:
-
+###### Não é mais necessario usando as atualizações de nfs-subdir-external-provisioner/deploy 
 
 Current workaround is to edit /etc/kubernetes/manifests/kube-apiserver.yaml
 
