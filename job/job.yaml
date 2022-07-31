@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: roleta-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: job
+        image: kubedevio/roleta
+        args:
+          - "-c"
+          - "2"
+          - "-m"
+          - "5"
+      restartPolicy: Never
