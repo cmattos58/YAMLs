@@ -1,0 +1,10 @@
+apiVersion: v1
+imagePullSecrets:
+- name: regcred
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2022-06-05T00:39:39Z"
+  name: default
+  namespace: default
+  resourceVersion: "3458775"
+  uid: 8630b18b-f3f2-48ec-b3ca-b51bc8902f7c
