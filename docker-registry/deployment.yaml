@@ -15,7 +15,7 @@ spec:
       containers:
       - name: owncloud
         #image: registry.tcema.tc.br/owncloud:latest
-        image:  registry.example.com/cmattos/owncloud:latest
+        image:  registry.example.com/cmattos/owncloud_server:latest
         resources:
           limits:
             memory: "128Mi"
@@ -23,4 +23,4 @@ spec:
         ports:
         - containerPort: 8080
       imagePullSecrets:
-        - name: cicd
+        - name: regcred
