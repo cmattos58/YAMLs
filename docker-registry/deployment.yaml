@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: owncloud
-        #image: registry.tcema.tc.br/owncloud:latest
+        #image: registry.tcema.tc.br/nextcloud:latest
         image:  registry.example.com/cmattos/owncloud_server:latest
         resources:
           limits:
@@ -24,3 +24,28 @@ spec:
         - containerPort: 8080
       imagePullSecrets:
         - name: regcred
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: nextcloud
+spec:
+  selector:
+    matchLabels:
+      app: nextcloud
+  template:
+    metadata:
+      labels:
+        app: nextcloud
+    spec: 
+      containers:       
+        - name: nextcloud
+          image: nextcloud:latest
+          resources:
+            limits:
+             memory: "128Mi"
+             cpu: "500m"
+          ports:
+          - containerPort: 8080
