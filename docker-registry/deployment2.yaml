@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: web-green
+spec:
+  selector:
+    matchLabels:
+      app: web-green
+  template:
+    metadata:
+      labels:
+        app: web-green
+    spec:
+      containers:
+      - name: web-green
+        image:  fabricioveronez/web-page:green
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: web-blue
+spec:
+  selector:
+    matchLabels:
+      app: web-blue
+  template:
+    metadata:
+      labels:
+        app: web-blue
+    spec: 
+      containers:       
+        - name: web-blue
+          image: fabricioveronez/web-page:blue
+          resources:
+            limits:
+             memory: "128Mi"
+             cpu: "500m"
+          ports:
+          - containerPort: 80

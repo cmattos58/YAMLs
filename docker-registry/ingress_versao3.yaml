@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingressv3
+  annotations:
+     nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: srv02.tce.ma.gov.br
+    http:
+        paths:
+          - path: /green
+            pathType: Prefix
+            backend:
+              service:
+                name: web-green
+                port:
+                  number: 80
+          - path: /blue
+            pathType: Prefix
+            backend:
+              service:
+                name: web-blue
+                port:
+                  number: 80
